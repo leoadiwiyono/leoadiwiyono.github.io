@@ -61,6 +61,12 @@
 	        
 			</ul>
 		</nav>
+		
+		<nav>
+    		总文章数 2
+		</nav>
+
+
 		<nav class="header-smart-menu">
     		
     			
@@ -157,7 +163,7 @@
 </blockquote>
 <h2 id="创建第一篇博客"><a href="#创建第一篇博客" class="headerlink" title="创建第一篇博客"></a>创建第一篇博客</h2><p>创建新的文章：<code>hexo n “我的第一篇文章”</code><br>进入文章存放目录： <code>cd source/_posts/</code><br>使用命令进入编辑：vim 我的第一篇文章.markdown<br>使用<code>i</code>进入编辑模式，<code>Ese</code>退出编辑模式，按<code>shift + ：</code>并输入<code>wq</code>退出编辑<br>返回blog目录，上面进入了多少层就使用多少个<code>..</code>：<code>cd .. / ..</code><br>清理:<code>hexo clean</code><br>生成:<code>hexo g</code></p>
 <h2 id="部署到Github"><a href="#部署到Github" class="headerlink" title="部署到Github"></a>部署到Github</h2><p>Github创建一个新的仓库：YourGithubName.github.io<br>在blog目录下安装git部署插件：<code>cnpm install hexo-deployer-git</code><br>配置_config.yml（打开编辑），可以使用上述提到的vim方法，也可以使用sublime等编辑器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  	type: &#39;git&#39;</span><br><span class="line"> 	repo: https:&#x2F;&#x2F;github.com&#x2F;YourGithubName&#x2F;YourGithubName.github.io.git</span><br><span class="line">  	branch: master</span><br></pre></td></tr></table></figure>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">deploy</span>:</span><br><span class="line">  	<span class="attribute">type</span>: <span class="string">&#x27;git&#x27;</span></span><br><span class="line"> 	<span class="attribute">repo</span>: <span class="attribute">https</span>:<span class="comment">//github.com/YourGithubName/YourGithubName.github.io.git</span></span><br><span class="line">  	<span class="attribute">branch</span>: master</span><br></pre></td></tr></table></figure>
 <p>部署到Github仓库里：<code>hexo d</code>，并输入Github用户名和密码<br>访问这个地址可以查看博客：<a target="_blank" rel="noopener" href="https://yourgithubname.github.io/">https://YourGithubName.github.io/</a> </p>
 <h2 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h2><p> 下载yilia主题到themes文件夹：<code>git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia</code><br>修改hexo根目录下的_config.yml 文件中： theme: yilia</p>
 <h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><p>清理：<code>hexo clean</code><br>生成：<code>hexo g</code><br>部署到远程Github仓库：<code>hexo d</code><br>查看博客：<a target="_blank" rel="noopener" href="https://yourgithubname.github.io/">https://YourGithubName.github.io/</a></p>

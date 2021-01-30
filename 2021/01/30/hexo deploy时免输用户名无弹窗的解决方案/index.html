@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>Hexo deploy时免输用户名无弹窗的解决方案 | Leo Adi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="生成 SSH 密钥终端输入： 12cd ~&#x2F;.ssh# Checks to see if there is a directory named “.ssh” in your user directory 使用ssh-keygen生成密钥： 1sudo ssh-keygen -t rsa -C “你的注册邮箱” 使用默认的文件名直接enter，接下来显示如下，按提示输入密码即可 12Ent">
+  <meta name="description" content="生成 SSH 密钥终端输入： 12cd ~&#x2F;.ssh# Checks to see if there is a directory named “.ssh” in your user directory 使用ssh-keygen生成密钥： 1sudo ssh-keygen -t rsa -C “你的注册邮箱” 使用默认的文件名直接enter，接下来显示如下，按提示输入密码即可 12Enter pa">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo deploy时免输用户名无弹窗的解决方案">
 <meta property="og:url" content="http://example.com/2021/01/30/hexo%20deploy%E6%97%B6%E5%85%8D%E8%BE%93%E7%94%A8%E6%88%B7%E5%90%8D%E6%97%A0%E5%BC%B9%E7%AA%97%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/index.html">
 <meta property="og:site_name" content="Leo Adi">
-<meta property="og:description" content="生成 SSH 密钥终端输入： 12cd ~&#x2F;.ssh# Checks to see if there is a directory named “.ssh” in your user directory 使用ssh-keygen生成密钥： 1sudo ssh-keygen -t rsa -C “你的注册邮箱” 使用默认的文件名直接enter，接下来显示如下，按提示输入密码即可 12Ent">
+<meta property="og:description" content="生成 SSH 密钥终端输入： 12cd ~&#x2F;.ssh# Checks to see if there is a directory named “.ssh” in your user directory 使用ssh-keygen生成密钥： 1sudo ssh-keygen -t rsa -C “你的注册邮箱” 使用默认的文件名直接enter，接下来显示如下，按提示输入密码即可 12Enter pa">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-01-30T10:33:39.000Z">
 <meta property="article:modified_time" content="2021-01-30T10:08:59.467Z">
@@ -61,6 +61,12 @@
 	        
 			</ul>
 		</nav>
+		
+		<nav>
+    		总文章数 2
+		</nav>
+
+
 		<nav class="header-smart-menu">
     		
     			
@@ -147,19 +153,19 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="生成-SSH-密钥"><a href="#生成-SSH-密钥" class="headerlink" title="生成 SSH 密钥"></a>生成 SSH 密钥</h2><p>终端输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~&#x2F;.ssh</span><br><span class="line"># Checks to see if there is a directory named “.ssh” in your user directory</span><br></pre></td></tr></table></figure>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> ~<span class="string">/.ssh</span></span><br><span class="line"><span class="comment"># Checks to see if there is a directory named “.ssh” in your user directory</span></span><br></pre></td></tr></table></figure>
 <p>使用ssh-keygen生成密钥：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ssh-keygen -t rsa -C “你的注册邮箱”</span><br></pre></td></tr></table></figure>
+<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ssh-keygen -<span class="built_in">t</span> rsa -C “你的注册邮箱”</span><br></pre></td></tr></table></figure>
 <p>使用默认的文件名直接enter，接下来显示如下，按提示输入密码即可</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Enter passphrase (empty for no passphrase): [Type a passphrase]</span><br><span class="line">Enter same passphrase again: [Type passphrase again]</span><br></pre></td></tr></table></figure>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Enter passphrase (empty <span class="keyword">for</span> no passphrase): [<span class="keyword">Type</span> <span class="type">a </span>passphrase]</span><br><span class="line">Enter same passphrase again: [<span class="keyword">Type</span> <span class="type">passphrase </span>again]</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 
 <h2 id="在Github中配置共钥"><a href="#在Github中配置共钥" class="headerlink" title="在Github中配置共钥"></a>在Github中配置共钥</h2><p>在github的首页菜单栏中点击Settings —&gt; Deploy keys —&gt; Add deploy key，然后将生成的id_rsa.pub中的内容全选复制到key输入框中，然后点击Add key完成添加公钥。<br>使用下面代码测试配置是否成功：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T <span class="symbol">git@</span>github.com</span><br></pre></td></tr></table></figure>
 <p>若出现Are you sure you want to continue connecting (yes/no/[fingerprint])? ，键入yes并回车<br>如果出现以下内容即表示配置完成并且成功：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hi username! You&#39;ve successfully authenticated, but GitHub does notprovide shell access.</span><br></pre></td></tr></table></figure>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hi username! You<span class="symbol">&#x27;ve</span> successfully authenticated, but GitHub does notprovide shell <span class="keyword">access</span>.</span><br></pre></td></tr></table></figure>
 <h2 id="修改-config-yml"><a href="#修改-config-yml" class="headerlink" title="修改_config.yml"></a>修改_config.yml</h2><p>修改deploy下的repo属性：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">	type: git</span><br><span class="line">	repo: git@github.com:你的name&#x2F;你的username.github.io.git</span><br><span class="line">	branch: master</span><br></pre></td></tr></table></figure>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">deploy</span>:</span><br><span class="line">	<span class="attribute">type</span>: git</span><br><span class="line">	<span class="attribute">repo</span>: git<span class="variable">@github</span>.<span class="attribute">com</span>:你的name/你的username.github.io.git</span><br><span class="line">	<span class="attribute">branch</span>: master</span><br></pre></td></tr></table></figure>
 <p>随后重新deploy博客进行测试。</p>
 <h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>这一系列操作做完，能够跳过每次输入用户名的步骤，并且不出现钥匙串提示弹窗。但并没有从实质上便利登入，仍然需要输入访问公钥的密码。</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
